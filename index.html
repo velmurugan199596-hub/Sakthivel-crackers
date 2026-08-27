@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SAKTHIVEL TRADERS | Fireworks Catalog</title>
+<style>
+*{box-sizing:border-box} body{margin:0;font-family:Arial,sans-serif;background:#07152f;color:#172033}
+.hero{min-height:340px;padding:34px 18px;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;background:radial-gradient(circle at 20% 30%,#224a86 0,transparent 30%),radial-gradient(circle at 80% 25%,#7c1e2b 0,transparent 30%),linear-gradient(135deg,#050b1c,#102b57 55%,#220c24)}
+.hero:before{content:"✦  ✧  ✹  ✦  ✧  ✹  ✦";position:absolute;top:20px;left:0;right:0;font-size:34px;color:#ffd45a;letter-spacing:28px;opacity:.8}
+.hero:after{content:"🚀   🌸   🎆   🌸   🚀";position:absolute;bottom:18px;left:0;right:0;font-size:35px;opacity:.85}
+.hero-inner{position:relative;z-index:2;max-width:900px;color:white}
+.brand{font-size:clamp(34px,7vw,68px);font-weight:900;letter-spacing:2px;margin:18px 0 5px;text-shadow:0 4px 18px #000}
+.tag{font-size:18px;color:#ffd45a;font-weight:700;letter-spacing:3px}
+.info{margin-top:18px;font-size:15px;line-height:1.8}
+.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.btn{border:0;border-radius:999px;padding:12px 18px;font-weight:800;text-decoration:none;cursor:pointer}
+.call{background:#ffd45a;color:#07152f} .wa{background:#25d366;color:white}
+.wrap{max-width:1180px;margin:auto;padding:22px 14px 50px}
+.searchbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px}
+input,select{padding:13px 14px;border-radius:12px;border:1px solid #ccd5e3;font-size:15px;flex:1;min-width:190px}
+.notice{background:#fff3cd;border-left:5px solid #d99b00;padding:12px 14px;border-radius:8px;margin-bottom:18px;font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.card{background:white;border-radius:18px;padding:15px;box-shadow:0 8px 24px rgba(0,0,0,.18);position:relative;overflow:hidden}
+.card .icon{height:115px;border-radius:13px;background:linear-gradient(135deg,#132d5a,#c27b13);display:flex;align-items:center;justify-content:center;font-size:55px;margin-bottom:12px}
+.no{font-size:11px;color:#697586;font-weight:700} .name{font-size:17px;font-weight:800;margin:4px 0 8px} .meta{font-size:12px;color:#697586}
+.price{font-size:21px;font-weight:900;color:#a86e00;margin-top:10px}
+.order{margin-top:11px;width:100%;background:#25d366;color:white;border:0;padding:10px;border-radius:10px;font-weight:800;cursor:pointer}
+.section{color:white;font-size:22px;font-weight:900;margin:28px 0 12px;display:flex;align-items:center;gap:10px}
+.section span{background:#c27b13;padding:5px 10px;border-radius:8px;font-size:12px}
+footer{background:#040a18;color:#dbe5f5;text-align:center;padding:25px 15px;line-height:1.8}
+small{opacity:.75}
+@media(max-width:500px){.hero{min-height:300px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card{padding:10px;border-radius:14px}.card .icon{height:90px;font-size:42px}.name{font-size:14px}.price{font-size:18px}}
+</style>
+</head>
+<body>
+<header class="hero">
+<div class="hero-inner">
+<div class="tag">🎆 PREMIUM FIREWORKS CATALOG 🎆</div>
+<div class="brand">SAKTHIVEL TRADERS</div>
+<div class="info">📞 <b>93442 65054</b><br>📍 ALANGULAM MAIN ROAD, KUNDAYIRUPPU, SIVAKASI</div>
+<div class="actions">
+<a class="btn call" href="tel:+919344265054">📞 Call Now</a>
+<a class="btn wa" href="https://wa.me/919344265054?text=Hello%20SAKTHIVEL%20TRADERS%2C%20I%20want%20to%20order%20fireworks." target="_blank">💬 WhatsApp Order</a>
+</div>
+</div>
+</header>
+<main class="wrap">
+<div class="notice">Prices shown are the rates from your supplied price list. Availability and final billing should be confirmed with the shop.</div>
+<div class="searchbar">
+<input id="search" placeholder="🔎 Search product..." oninput="render()">
+<select id="cat" onchange="render()"><option value="">All Categories</option></select>
+</div>
+<div id="catalog"></div>
+</main>
+<footer>
+<b>SAKTHIVEL TRADERS</b><br>
+93442 65054<br>
+ALANGULAM MAIN ROAD, KUNDAYIRUPPU, SIVAKASI<br>
+<small>Fireworks Catalog • Product prices as supplied by the shop</small>
+</footer>
+<script>
+const items=[{"cat": "ONE SOUND CRACKERS", "no": 1, "name": "Gold Lakshmi", "qty": "1 Pkt", "rate": 20}, {"cat": "ONE SOUND CRACKERS", "no": 2, "name": "2¾\" Kuruvi", "qty": "1 Pkt", "rate": 6}, {"cat": "ONE SOUND CRACKERS", "no": 3, "name": "3½\" Lakshmi", "qty": "1 Pkt", "rate": 10}, {"cat": "ONE SOUND CRACKERS", "no": 4, "name": "4\" Lakshmi", "qty": "1 Pkt", "rate": 15}, {"cat": "ONE SOUND CRACKERS", "no": 5, "name": "5\" Jallikattu", "qty": "1 Pkt", "rate": 35}, {"cat": "ONE SOUND CRACKERS", "no": 6, "name": "5\" Lion & Hulk", "qty": "1 Pkt", "rate": 40}, {"cat": "ONE SOUND CRACKERS", "no": 7, "name": "4\" Lakshmi DLX", "qty": "1 Pkt", "rate": 30}, {"cat": "FLOWER POTS", "no": 8, "name": "Flower Big", "qty": "1 Box", "rate": 60}, {"cat": "FLOWER POTS", "no": 9, "name": "Flower SPL", "qty": "1 Box", "rate": 80}, {"cat": "FLOWER POTS", "no": 10, "name": "Flower Ashoka", "qty": "1 Box", "rate": 110}, {"cat": "FLOWER POTS", "no": 11, "name": "Colour Koti", "qty": "1 Box", "rate": 180}, {"cat": "FLOWER POTS", "no": 12, "name": "Colour Koti DLX", "qty": "1 Box", "rate": 250}, {"cat": "FLOWER POTS", "no": 13, "name": "Tri Colour (5 Pcs)", "qty": "1 Box", "rate": 250}, {"cat": "GROUND CHAKKAR", "no": 14, "name": "Disco Wheel", "qty": "1 Box", "rate": 80}, {"cat": "GROUND CHAKKAR", "no": 15, "name": "Chakkar Big", "qty": "1 Box", "rate": 60}, {"cat": "GROUND CHAKKAR", "no": 16, "name": "Chakkar SPL", "qty": "1 Box", "rate": 100}, {"cat": "GROUND CHAKKAR", "no": 17, "name": "Chakkar DLX", "qty": "1 Box", "rate": 150}, {"cat": "GROUND CHAKKAR", "no": 18, "name": "4×4 Wheel Chakkar", "qty": "1 Box", "rate": 180}, {"cat": "GROUND CHAKKAR", "no": 19, "name": "Wire Chakkar", "qty": "1 Box", "rate": 180}, {"cat": "GROUND CHAKKAR", "no": 20, "name": "Wheeling Show", "qty": "1 Box", "rate": 220}, {"cat": "BIJILI PATTAS", "no": 21, "name": "Red Bijili", "qty": "1 Pkt", "rate": 25}, {"cat": "BIJILI PATTAS", "no": 22, "name": "Stripped Bijili", "qty": "1 Pkt", "rate": 30}, {"cat": "MULTI SOUND", "no": 23, "name": "50 DLX", "qty": "1 Pkt", "rate": 120}, {"cat": "MULTI SOUND", "no": 24, "name": "100 DLX", "qty": "1 Pkt", "rate": 190}, {"cat": "MULTI SOUND", "no": 25, "name": "28 Giant", "qty": "1 Pkt", "rate": 40}, {"cat": "MULTI SOUND", "no": 26, "name": "56 Giant", "qty": "1 Pkt", "rate": 60}, {"cat": "MULTI SOUND", "no": 27, "name": "100 Wala", "qty": "1 Box", "rate": 50}, {"cat": "MULTI SOUND", "no": 28, "name": "1000 Wala", "qty": "1 Box", "rate": 150}, {"cat": "MULTI SOUND", "no": 29, "name": "2000 Wala", "qty": "1 Box", "rate": 300}, {"cat": "MULTI SOUND", "no": 30, "name": "5000 Wala", "qty": "1 Box", "rate": 600}, {"cat": "MULTI SOUND", "no": 31, "name": "10000 Wala", "qty": "1 Box", "rate": 1200}, {"cat": "TWINKLING STAR", "no": 32, "name": "1½\" Twinkling Star", "qty": "1 Box", "rate": 60}, {"cat": "TWINKLING STAR", "no": 33, "name": "4\" Twinkling Star", "qty": "1 Box", "rate": 100}, {"cat": "BOMB", "no": 34, "name": "Hydro Bomb", "qty": "1 Box", "rate": 80}, {"cat": "BOMB", "no": 35, "name": "King Of King", "qty": "1 Box", "rate": 100}, {"cat": "BOMB", "no": 36, "name": "Bullet Bomb", "qty": "1 Box", "rate": 30}, {"cat": "BOMB", "no": 37, "name": "Classic Bomb", "qty": "1 Box", "rate": 150}, {"cat": "BOMB", "no": 38, "name": "Digital Bomb", "qty": "1 Box", "rate": 220}, {"cat": "ROCKETS", "no": 39, "name": "Rocket Bomb", "qty": "1 Box", "rate": 100}, {"cat": "ROCKETS", "no": 40, "name": "Lunik Rocket", "qty": "1 Box", "rate": 150}, {"cat": "ROCKETS", "no": 41, "name": "Musical Rocket", "qty": "1 Box", "rate": 150}, {"cat": "PENCIL TORCHES", "no": 42, "name": "Fire Pencil", "qty": "1 Box", "rate": 120}, {"cat": "PENCIL TORCHES", "no": 43, "name": "Flash Light", "qty": "1 Box", "rate": 180}, {"cat": "PENCIL TORCHES", "no": 44, "name": "Water Pencil", "qty": "1 Box", "rate": 190}, {"cat": "PENCIL TORCHES", "no": 45, "name": "3 Pcs Pencil", "qty": "1 Box", "rate": 220}, {"cat": "PAPER BOMB", "no": 46, "name": "¼ Adiyal", "qty": "1 Box", "rate": 35}, {"cat": "PAPER BOMB", "no": 47, "name": "½ Adiyal", "qty": "1 Box", "rate": 70}, {"cat": "PAPER BOMB", "no": 48, "name": "1 Kg Adiyal", "qty": "1 Box", "rate": 140}, {"cat": "PAPER BOMB", "no": 49, "name": "10 Pcs Adiyal", "qty": "1 Box", "rate": 300}, {"cat": "NEW FANCY ITEMS", "no": 50, "name": "Butterfly", "qty": "1 Box", "rate": 120}, {"cat": "NEW FANCY ITEMS", "no": 51, "name": "Bambaram", "qty": "1 Box", "rate": 120}, {"cat": "NEW FANCY ITEMS", "no": 52, "name": "Money Bank", "qty": "1 Box", "rate": 150}, {"cat": "NEW FANCY ITEMS", "no": 53, "name": "Hanuman Katha", "qty": "1 Box", "rate": 200}, {"cat": "NEW FANCY ITEMS", "no": 54, "name": "Drone", "qty": "1 Box", "rate": 100}, {"cat": "NEW FANCY ITEMS", "no": 55, "name": "Old Is Gold", "qty": "1 Box", "rate": 150}, {"cat": "NEW FANCY ITEMS", "no": 56, "name": "Naruto Siren", "qty": "1 Box", "rate": 160}, {"cat": "NEW FANCY ITEMS", "no": 57, "name": "Dora Singer", "qty": "1 Box", "rate": 180}, {"cat": "NEW FANCY ITEMS", "no": 58, "name": "Cylinder Smoke Bomb (2 Pcs)", "qty": "1 Box", "rate": 310}, {"cat": "NEW FANCY ITEMS", "no": 59, "name": "Kulfi Fountain (3 Pcs)", "qty": "1 Box", "rate": 310}, {"cat": "NEW FANCY ITEMS", "no": 60, "name": "2 Pcs Cracking Fountain", "qty": "1 Box", "rate": 250}, {"cat": "NEW FANCY ITEMS", "no": 61, "name": "Festival Cracking (3 Pcs)", "qty": "1 Box", "rate": 350}, {"cat": "FANCY ITEMS", "no": 62, "name": "Jungle Beat Fountain", "qty": "1 Box", "rate": 150}, {"cat": "FANCY ITEMS", "no": 63, "name": "T-Rex Egg", "qty": "1 Box", "rate": 200}, {"cat": "FANCY ITEMS", "no": 64, "name": "Thirumalaa's Shower Fountain (5 Pcs)", "qty": "1 Box", "rate": 220}, {"cat": "FANCY ITEMS", "no": 65, "name": "Madurai Malli Fountain (3 Pcs)", "qty": "1 Box", "rate": 220}, {"cat": "FANCY ITEMS", "no": 66, "name": "Colour Smoke (3 Pcs)", "qty": "1 Box", "rate": 180}, {"cat": "FANCY ITEMS", "no": 67, "name": "Helicopter", "qty": "1 Box", "rate": 60}, {"cat": "FANCY ITEMS", "no": 68, "name": "Lolli Pop", "qty": "1 Box", "rate": 190}, {"cat": "FANCY ITEMS", "no": 69, "name": "Photo Flash", "qty": "1 Box", "rate": 60}, {"cat": "FANCY ITEMS", "no": 70, "name": "Chota Fancy", "qty": "1 Box", "rate": 35}, {"cat": "FANCY ITEMS", "no": 71, "name": "Kit Kat", "qty": "1 Box", "rate": 60}, {"cat": "FANCY ITEMS", "no": 72, "name": "Siren (5 Pcs)", "qty": "1 Box", "rate": 180}, {"cat": "FANCY ITEMS", "no": 73, "name": "Penta Sky Shot (5 Pcs)", "qty": "1 Box", "rate": 250}, {"cat": "FANCY ITEMS", "no": 74, "name": "90 Watts", "qty": "1 Box", "rate": 200}, {"cat": "FANCY ITEMS", "no": 75, "name": "Gun Fountain", "qty": "1 Box", "rate": 200}, {"cat": "FANCY ITEMS", "no": 76, "name": "Tin Fountain", "qty": "1 Box", "rate": 120}, {"cat": "FANCY ITEMS", "no": 77, "name": "Car Fountain", "qty": "1 Box", "rate": 190}, {"cat": "FANCY ITEMS", "no": 78, "name": "Murugan Vel Fountain", "qty": "1 Box", "rate": 190}, {"cat": "FANCY ITEMS", "no": 79, "name": "Peacock", "qty": "1 Box", "rate": 150}, {"cat": "FANCY ITEMS", "no": 80, "name": "Bada Peacock", "qty": "1 Box", "rate": 350}, {"cat": "FANCY ITEMS", "no": 81, "name": "Self Stick", "qty": "1 Box", "rate": 160}, {"cat": "FANCY ITEMS", "no": 82, "name": "Toys Shower Fountain", "qty": "1 Box", "rate": 140}, {"cat": "FANCY ITEMS", "no": 83, "name": "Top Gun", "qty": "1 Box", "rate": 210}, {"cat": "FANCY ITEMS", "no": 84, "name": "Water Queen Fountain", "qty": "1 Box", "rate": 190}, {"cat": "MULTI SHOT FANCY", "no": 85, "name": "12 Shot", "qty": "1 Box", "rate": 150}, {"cat": "MULTI SHOT FANCY", "no": 86, "name": "15 Shot", "qty": "1 Box", "rate": 280}, {"cat": "MULTI SHOT FANCY", "no": 87, "name": "15 Smoke Shot", "qty": "1 Box", "rate": 400}, {"cat": "MULTI SHOT FANCY", "no": 88, "name": "25 Cracking Shot", "qty": "1 Box", "rate": 400}, {"cat": "MULTI SHOT FANCY", "no": 89, "name": "30 Peacock Shot", "qty": "1 Box", "rate": 400}, {"cat": "MULTI SHOT FANCY", "no": 90, "name": "30 Shot Multi Colour", "qty": "1 Box", "rate": 350}, {"cat": "MULTI SHOT FANCY", "no": 91, "name": "60 Shot Multi Colour", "qty": "1 Box", "rate": 700}, {"cat": "MULTI SHOT FANCY", "no": 92, "name": "120 Shot Multi Colour", "qty": "1 Box", "rate": 1400}, {"cat": "MULTI SHOT FANCY", "no": 93, "name": "240 Shot Multi Colour", "qty": "1 Box", "rate": 2800}, {"cat": "MULTI SHOT FANCY", "no": 94, "name": "5×5 Cracking Shot", "qty": "1 Box", "rate": 700}, {"cat": "MULTI SHOT FANCY", "no": 95, "name": "10×10 Cracking Shot", "qty": "1 Box", "rate": 3000}, {"cat": "SINGLE SHOT FANCY", "no": 96, "name": "2\" Fancy", "qty": "1 Box", "rate": 100}, {"cat": "SINGLE SHOT FANCY", "no": 97, "name": "2\" Fancy (3 Pcs)", "qty": "1 Box", "rate": 240}, {"cat": "SINGLE SHOT FANCY", "no": 98, "name": "3½\" Fancy", "qty": "1 Box", "rate": 280}, {"cat": "SINGLE SHOT FANCY", "no": 99, "name": "4½\" Fancy", "qty": "1 Box", "rate": 350}, {"cat": "SINGLE SHOT FANCY", "no": 100, "name": "3½\" Double Ball", "qty": "1 Box", "rate": 350}, {"cat": "SINGLE SHOT FANCY", "no": 101, "name": "3½\" Nayagara Falls", "qty": "1 Box", "rate": 350}, {"cat": "SINGLE SHOT FANCY", "no": 102, "name": "3\" Fancy (2 Pcs)", "qty": "1 Box", "rate": 800}, {"cat": "SINGLE SHOT FANCY", "no": 103, "name": "5\" Fancy (2 Pcs)", "qty": "1 Box", "rate": 1400}, {"cat": "SINGLE SHOT FANCY", "no": 104, "name": "7 Shot", "qty": "1 Box", "rate": 120}, {"cat": "SPARKLERS", "no": 105, "name": "Rotating Sparklers", "qty": "1 Box", "rate": 250}, {"cat": "SPARKLERS", "no": 106, "name": "50cm ELE", "qty": "1 Box", "rate": 200}, {"cat": "SPARKLERS", "no": 107, "name": "50cm Colour", "qty": "1 Box", "rate": 220}, {"cat": "SPARKLERS", "no": 108, "name": "30cm ELE", "qty": "1 Box", "rate": 55}, {"cat": "SPARKLERS", "no": 109, "name": "30cm Colour", "qty": "1 Box", "rate": 55}, {"cat": "SPARKLERS", "no": 110, "name": "30cm Red", "qty": "1 Box", "rate": 60}, {"cat": "SPARKLERS", "no": 111, "name": "30cm Green", "qty": "1 Box", "rate": 60}, {"cat": "SPARKLERS", "no": 112, "name": "15cm ELE", "qty": "1 Box", "rate": 55}, {"cat": "SPARKLERS", "no": 113, "name": "15cm Colour", "qty": "1 Box", "rate": 55}, {"cat": "SPARKLERS", "no": 114, "name": "15cm Red", "qty": "1 Box", "rate": 60}, {"cat": "SPARKLERS", "no": 115, "name": "15cm Green", "qty": "1 Box", "rate": 60}, {"cat": "SPARKLERS", "no": 116, "name": "10cm ELE", "qty": "1 Box", "rate": 15}, {"cat": "SPARKLERS", "no": 117, "name": "10cm Colour", "qty": "1 Box", "rate": 15}, {"cat": "SPARKLERS", "no": 118, "name": "10cm Red", "qty": "1 Box", "rate": 20}, {"cat": "SPARKLERS", "no": 119, "name": "10cm Green", "qty": "1 Box", "rate": 20}, {"cat": "SPARKLERS", "no": 120, "name": "7cm ELE", "qty": "1 Box", "rate": 8}, {"cat": "SPARKLERS", "no": 121, "name": "7cm Colour", "qty": "1 Box", "rate": 8}, {"cat": "SPARKLERS", "no": 122, "name": "7cm Red", "qty": "1 Box", "rate": 10}, {"cat": "SPARKLERS", "no": 123, "name": "7cm Green", "qty": "1 Box", "rate": 10}, {"cat": "GIFT BOX", "no": 124, "name": "25 Item Box", "qty": "1 Box", "rate": 400}, {"cat": "GIFT BOX", "no": 125, "name": "30 Item Box", "qty": "1 Box", "rate": 500}, {"cat": "GIFT BOX", "no": 126, "name": "36 Item Box", "qty": "1 Box", "rate": 600}, {"cat": "GIFT BOX", "no": 127, "name": "41 Item Box", "qty": "1 Box", "rate": 750}, {"cat": "GIFT BOX", "no": 128, "name": "50 Item Box", "qty": "1 Box", "rate": 900}, {"cat": "GIFT BOX", "no": 129, "name": "60 Item Box", "qty": "1 Box", "rate": 1000}, {"cat": "GIFT BOX", "no": 130, "name": "70 Item Box", "qty": "1 Box", "rate": 1200}];
+const cats=[...new Set(items.map(x=>x.cat))];
+const sel=document.getElementById('cat');
+cats.forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;sel.appendChild(o)});
+
+function icon(cat,name){
+ const n=name.toLowerCase();
+ if(cat.includes('ROCKET')) return '🚀';
+ if(cat.includes('FLOWER')||n.includes('fountain')) return '🌸';
+ if(cat.includes('SPARKLER')) return '✨';
+ if(cat.includes('BOMB')) return '💥';
+ if(cat.includes('MULTI SHOT')||n.includes('shot')) return '🎆';
+ if(cat.includes('GIFT')) return '🎁';
+ if(cat.includes('CHAKKAR')) return '🌀';
+ return '🎇';
+}
+function order(name,rate){
+ const text=encodeURIComponent(`Hello SAKTHIVEL TRADERS, I want to order: ${name} - ₹${rate}`);
+ window.open('https://wa.me/919344265054?text='+text,'_blank');
+}
+function render(){
+ const q=document.getElementById('search').value.toLowerCase();
+ const c=document.getElementById('cat').value;
+ const filtered=items.filter(x=>(!q||x.name.toLowerCase().includes(q)||x.cat.toLowerCase().includes(q))&&(!c||x.cat===c));
+ const groups={};
+ filtered.forEach(x=>(groups[x.cat]??=[]).push(x));
+ const root=document.getElementById('catalog');
+ root.innerHTML=Object.entries(groups).map(([cat,arr])=>`
+   <h2 class="section">${cat} <span>${arr.length} ITEMS</span></h2>
+   <div class="grid">${arr.map(x=>`
+     <article class="card">
+       <div class="icon">${icon(x.cat,x.name)}</div>
+       <div class="no">S.NO. ${x.no}</div>
+       <div class="name">${x.name}</div>
+       <div class="meta">${x.qty}</div>
+       <div class="price">₹${x.rate.toLocaleString('en-IN')}</div>
+       <button class="order" onclick="order('${x.name.replace(/'/g,"\\'")}',${x.rate})">Order on WhatsApp</button>
+     </article>`).join('')}</div>`).join('');
+}
+render();
+</script>
+</body>
+</html>
